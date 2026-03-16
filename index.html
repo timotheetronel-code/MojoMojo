@@ -7,9 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --mojo-orange: #FF6B00; /* Retour au orange vif d'origine */
-            --dark-bg: #0F0F0F;
-            --card-bg: #1A1A1A;
+            --mojo-orange: #FF6B00;
+            --dark-bg: #0A0A0A;
+            --black: #000000;
+            --card-bg: #161616;
             --text-light: #F5F5F5;
             --whatsapp-green: #25D366;
         }
@@ -19,7 +20,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
+            background-color: var(--black);
             color: var(--text-light);
             line-height: 1.6;
         }
@@ -49,51 +50,68 @@
         h1 { font-size: clamp(2rem, 8vw, 3rem); font-weight: 800; text-transform: uppercase; }
         .location { color: var(--mojo-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; }
 
-        /* Menu Grid */
-        .container { max-width: 1100px; margin: -60px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+        /* Menu Grid Section */
+        .menu-section {
+            padding-bottom: 80px;
+            background: var(--black);
+        }
+
+        .container { max-width: 1100px; margin: -60px auto 0; padding: 0 20px; position: relative; z-index: 10; }
         .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         
         .product-card {
             background: var(--card-bg); border-radius: 20px; padding: 30px;
             border-left: 5px solid var(--mojo-orange); transition: 0.3s;
+            border-bottom: 1px solid #222;
         }
-        .product-card:hover { transform: translateY(-10px); }
+        .product-card:hover { transform: translateY(-10px); background: #1f1f1f; }
         .emoji { font-size: 2rem; display: block; margin-bottom: 10px; }
         h3 { color: var(--mojo-orange); text-transform: uppercase; margin-bottom: 10px; font-size: 1.1rem; }
 
-        /* Section Valeurs */
-        .values-section { padding: 80px 20px; text-align: center; background: #050505; }
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1000px; margin: 40px auto 0; }
-        .value-item h4 { color: var(--mojo-orange); margin-bottom: 10px; }
-
-        /* Livre d'Or */
-        .guestbook { padding: 60px 20px; text-align: center; background: var(--dark-bg); }
-        .testimonial-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-snap-type: x mandatory; }
-        .testimonial-card {
-            min-width: 300px; background: var(--card-bg); padding: 25px; border-radius: 15px; 
-            scroll-snap-align: center; text-align: left; border: 1px solid #333;
+        /* Section L'ESPRIT MOJO (Contrastée) */
+        .values-section { 
+            padding: 100px 20px; 
+            text-align: center; 
+            background: var(--dark-bg); /* Gris très sombre pour différencier */
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
         }
-        .author { margin-top: 10px; font-weight: 700; color: var(--mojo-orange); font-size: 0.8rem; }
+        .values-section h2 { letter-spacing: 3px; margin-bottom: 40px; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; }
+        .value-item h4 { color: var(--mojo-orange); margin-bottom: 10px; font-size: 1.2rem; }
 
-        /* Info & Map (Rétablie) */
-        .info-section { padding: 80px 20px; background: #050505; }
-        .info-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .map-container { border-radius: 20px; overflow: hidden; border: 2px solid var(--mojo-orange); height: 350px; }
+        /* Section LIVRE D'OR */
+        .guestbook { padding: 100px 20px; text-align: center; background: var(--black); }
+        .guestbook h2 { letter-spacing: 3px; margin-bottom: 40px; }
+        .testimonial-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-snap-type: x mandatory; max-width: 1100px; margin: 0 auto; }
+        .testimonial-card {
+            min-width: 320px; background: var(--card-bg); padding: 30px; border-radius: 15px; 
+            scroll-snap-align: center; text-align: left; border: 1px solid #222;
+        }
+        .author { margin-top: 15px; font-weight: 700; color: var(--mojo-orange); font-size: 0.8rem; text-transform: uppercase; }
+
+        /* Section INFO & MAP (Contrastée) */
+        .info-section { padding: 100px 20px; background: var(--dark-bg); border-top: 1px solid #1a1a1a; }
+        .info-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
+        .map-container { border-radius: 20px; overflow: hidden; border: 2px solid var(--mojo-orange); height: 400px; width: 100%; }
 
         /* WhatsApp */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--whatsapp-green); color: white;
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 65px; height: 65px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none;
+            font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); z-index: 1000; text-decoration: none;
+            transition: 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* Fin de site (Version préférée rétablie) */
-        .footer-cta { background: var(--mojo-orange); color: white; padding: 60px 20px; text-align: center; }
-        .btn-white { background: white; color: var(--mojo-orange); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 20px; text-transform: uppercase; }
+        /* Pied de page Orange */
+        .footer-cta { background: var(--mojo-orange); color: white; padding: 80px 20px; text-align: center; }
+        .btn-white { background: white; color: var(--mojo-orange); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 25px; text-transform: uppercase; transition: 0.3s; }
+        .btn-white:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        footer { text-align: center; padding: 20px; font-size: 0.7rem; opacity: 0.5; background: #000; }
+        footer { text-align: center; padding: 30px; font-size: 0.75rem; opacity: 0.6; background: var(--black); border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -106,56 +124,59 @@
         <h1>HEALTHY CUISINE</h1>
     </header>
 
-    <div class="container">
-        <div class="menu-grid">
-            <div class="product-card"><span class="emoji">🍓</span><h3>Açaï Bowl</h3><p>Énergie pure et fruits frais.</p></div>
-            <div class="product-card"><span class="emoji">🥗</span><h3>Poke Bowls</h3><p>Frais, équilibré et coloré.</p></div>
-            <div class="product-card"><span class="emoji">🌯</span><h3>Wraps</h3><p>Idéal pour emporter à la plage.</p></div>
-            <div class="product-card"><span class="emoji">🥤</span><h3>Boissons</h3><p>Smoothies et jus pressés minute.</p></div>
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid">
+                <div class="product-card"><span class="emoji">🍓</span><h3>Açaï Bowl</h3><p>Énergie pure et fruits frais pour votre journée.</p></div>
+                <div class="product-card"><span class="emoji">🥗</span><h3>Poke Bowls</h3><p>Frais, équilibré et coloré. Le plein de vitalité.</p></div>
+                <div class="product-card"><span class="emoji">🌯</span><h3>Wraps</h3><p>Idéal pour emporter lors de vos sorties plage.</p></div>
+                <div class="product-card"><span class="emoji">🥤</span><h3>Boissons</h3><p>Smoothies et jus pressés minute ultra-frais.</p></div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <section class="values-section">
         <h2>L'ESPRIT MOJO</h2>
         <div class="values-grid">
-            <div class="value-item"><h4>🌿 100% Frais</h4><p>Produits travaillés chaque matin.</p></div>
-            <div class="value-item"><h4>♻️ Éco-Friendly</h4><p>Packagings responsables.</p></div>
-            <div class="value-item"><h4>📍 Local Spirit</h4><p>Ancré à l'Étang-Salé Les Bains.</p></div>
+            <div class="value-item"><h4>🌿 100% Frais</h4><p>Produits travaillés chaque matin avec passion.</p></div>
+            <div class="value-item"><h4>♻️ Éco-Friendly</h4><p>Packagings responsables pour protéger notre île.</p></div>
+            <div class="value-item"><h4>📍 Local Spirit</h4><p>Ancré au coeur de L'Étang-Salé Les Bains.</p></div>
         </div>
     </section>
 
     <section class="guestbook">
-        <h2 style="margin-bottom: 20px;">LIVRE D'OR</h2>
+        <h2>LIVRE D'OR</h2>
         <div class="testimonial-container">
-            <div class="testimonial-card"><p>"Le meilleur Açaï de l'île !"</p><div class="author">Marie L.</div></div>
-            <div class="testimonial-card"><p>"Super frais après le surf."</p><div class="author">Thomas R.</div></div>
-            <div class="testimonial-card"><p>"Les poke sont incroyables."</p><div class="author">Julie W.</div></div>
+            <div class="testimonial-card"><p>"Le meilleur Açaï de l'île ! Une explosion de saveurs."</p><div class="author">Marie L.</div></div>
+            <div class="testimonial-card"><p>"Super frais après une session de surf. Je recommande !"</p><div class="author">Thomas R.</div></div>
+            <div class="testimonial-card"><p>"Les poke sont généreux et délicieux. Accueil au top."</p><div class="author">Julie W.</div></div>
         </div>
     </section>
 
     <section class="info-section">
         <div class="info-grid">
             <div>
-                <h3 style="color: var(--mojo-orange); margin-bottom: 20px;">🕒 HORAIRES</h3>
-                <p>Lundi - Samedi : 09:00 — 18:00</p>
-                <p style="color: #666;">Dimanche : Fermé</p>
-                <h3 style="color: var(--mojo-orange); margin-top: 30px; margin-bottom: 10px;">📍 ADRESSE</h3>
-                <p>Rue Mary Guy Hoareau, 97427</p>
+                <h3 style="color: var(--mojo-orange); margin-bottom: 25px; font-size: 1.5rem;">🕒 HORAIRES</h3>
+                <p style="margin-bottom: 10px;">Lundi - Samedi : <br><strong>09:00 — 18:00</strong></p>
+                <p style="color: #666; margin-bottom: 30px;">Dimanche : Fermé</p>
+                
+                <h3 style="color: var(--mojo-orange); margin-bottom: 15px; font-size: 1.5rem;">📍 ADRESSE</h3>
+                <p>Rue Mary Guy Hoareau,<br>97427 L'Étang-Salé Les Bains</p>
             </div>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.654877395066!2d55.3370!3d-21.2670!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDE2JzAxLjIiUyA1NcKwMjAnMTMuMiJF!5e0!3m2!1sfr!2sre!4v1710580000000!5m2!1sfr!2sre" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
     <section class="footer-cta">
         <h2>PRÊT POUR VOTRE DOSE DE MOJO ?</h2>
-        <p>Commandez au 06 93 65 61 02 ou passez nous voir rue Mary Guy Hoareau.</p>
+        <p>Commandez au 06 93 65 61 02 ou passez nous voir !</p>
         <a href="tel:0693656102" class="btn-white">Appeler maintenant</a>
     </section>
 
     <footer>
-        © 2026 MOJO & MOJO • HEALTHY CUISINE • ÉTANG-SALÉ LES BAINS
+        © 2026 MOJO & MOJO • HEALTHY CUISINE • L'ÉTANG-SALÉ LES BAINS
     </footer>
 
 </body>
