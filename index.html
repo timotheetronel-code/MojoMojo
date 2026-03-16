@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mojo Mojo | Étang-Salé les Bains</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Mojo & Mojo | Healthy Cuisine Étang-Salé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --solar-sand: #fdf5e6;
-            --deep-jungle: #1a3c34;
-            --mojo-orange: #ff8c42;
-            --glass-white: rgba(255, 255, 255, 0.15);
+            --mojo-orange: #FF6B00; /* Orange du logo */
+            --mojo-green: #2D5A27;  /* Vert palmier */
+            --dark-bg: #0F0F0F;     /* Noir profond style Insta */
+            --card-bg: #1A1A1A;
+            --text-light: #F5F5F5;
         }
 
         * {
@@ -20,18 +21,17 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--solar-sand);
-            color: var(--deep-jungle);
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* Hero Section avec Image de fond Tropicale */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
+        /* Hero Section */
+        header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80'); /* Image saine par défaut */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -39,124 +39,159 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            border-bottom: 4px solid var(--mojo-orange);
         }
 
-        /* Logo / Titre Style Recoleta */
-        .brand-name {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: white;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            background: black;
+            border-radius: 50%;
+            border: 3px solid var(--mojo-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
             letter-spacing: -1px;
         }
 
-        .tagline {
-            color: white;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        /* Glassmorphism Card */
-        .cta-card {
-            background: var(--glass-white);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--mojo-orange);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
+        .location {
+            color: var(--mojo-orange);
             font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 10px;
             text-transform: uppercase;
+            letter-spacing: 2px;
             font-size: 0.9rem;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 140, 66, 0.4);
+        /* Menu Grid */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-        }
-
-        /* Menu Floating Icons (Instagram Vibe) */
-        .social-links {
-            position: absolute;
-            bottom: 30px;
-            display: flex;
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.8rem;
-            border-bottom: 1px solid white;
-            padding-bottom: 5px;
-            transition: opacity 0.3s;
-        }
-
-        .social-links a:hover {
-            opacity: 0.7;
-        }
-
-        /* Petit badge "Ouvert" dynamique */
-        .status-badge {
-            background: #4CAF50;
-            color: white;
-            padding: 5px 15px;
+        .product-card {
+            background: var(--card-bg);
             border-radius: 20px;
-            font-size: 0.7rem;
-            margin-bottom: 15px;
-            display: inline-block;
+            padding: 25px;
+            border-left: 5px solid var(--mojo-orange);
+            transition: transform 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .brand-name { font-size: 4rem; }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--mojo-orange);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-list {
+            list-style: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-bar {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--mojo-orange);
+            color: white;
+        }
+
+        .btn-call {
+            background: white;
+            color: var(--mojo-orange);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="status-badge">● Actuellement Ouvert</div>
-        
-        <h1 class="brand-name">Mojo Mojo</h1>
-        <p class="tagline">Cocktails • Tapas • Sunset</p>
+    <header>
+        <div class="logo-circle">MOJO & MOJO</div>
+        <p class="location">Étang-Salé Les Bains</p>
+        <h1>HEALTHY CUISINE</h1>
+    </header>
 
-        <div class="cta-card">
-            <p style="color: white; margin-bottom: 25px; line-height: 1.6;">
-                L'âme tropicale de l'Étang-Salé. <br>
-                Rejoignez-nous pour la "Golden Hour".
-            </p>
-            <a href="#" class="btn">Réserver une table</a>
-            <a href="https://www.instagram.com/m0j0andm0j0" target="_blank" class="btn btn-outline">Voir la Carte</a>
-        </div>
+    <div class="container">
+        <div class="menu-grid">
+            <div class="product-card">
+                <span class="emoji">🍓</span>
+                <h3>Açaï Bowl & Glace</h3>
+                <p class="product-list">Baies d'Açaï, fruits frais, granola croquant et options glaces artisanales.</p>
+            </div>
 
-        <div class="social-links">
-            <a href="https://www.instagram.com/m0j0andm0j0">INSTAGRAM</a>
-            <a href="#">FACEBOOK</a>
-            <a href="#">MAPS</a>
+            <div class="product-card">
+                <span class="emoji">🥗</span>
+                <h3>Poke & Salades</h3>
+                <p class="product-list">Compositions fraîches et colorées. Bowls healthy sur mesure.</p>
+            </div>
+
+            <div class="product-card">
+                <span class="emoji">🌯</span>
+                <h3>Wrap & Sandwich</h3>
+                <p class="product-list">Le snacking sain : poulet, veggie ou saumon dans des tortillas fraîches.</p>
+            </div>
+
+            <div class="product-card">
+                <span class="emoji">🥤</span>
+                <h3>Boissons & Café</h3>
+                <p class="product-list">Smoothies maison, jus pressés et cafés de spécialité.</p>
+            </div>
         </div>
+    </div>
+
+    <section class="contact-bar">
+        <h2>Une envie de fraîcheur ?</h2>
+        <p>Rue Mary Guy Hoareau, L'Étang-Salé 97427</p>
+        <a href="tel:0693656102" class="btn-call">APPELER LE 06 93 65 61 02</a>
     </section>
+
+    <footer>
+        &copy; 2026 MOJO & MOJO - Réalisé pour le projet Étang-Salé
+    </footer>
 
 </body>
 </html>
