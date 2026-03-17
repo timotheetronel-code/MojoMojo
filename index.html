@@ -45,15 +45,9 @@
             border-left: 2px solid var(--mojo-orange);
         }
         .side-menu.active { right: 0; }
-        .side-menu a {
-            color: white; text-decoration: none; font-size: 1.3rem;
-            font-weight: 700; margin-bottom: 25px; text-transform: uppercase;
-        }
+        .side-menu a { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; }
 
-        .menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); z-index: 2000; display: none;
-        }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; display: none; }
         .menu-overlay.active { display: block; }
 
         /* --- GRADIENT SECTION --- */
@@ -80,20 +74,40 @@
 
         #status-badge { font-size: 0.75rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; background: rgba(0,0,0,0.6); margin-bottom: 15px; }
 
-        /* --- MENU --- */
-        .section-menu { padding: 0 20px 60px; margin-top: -80px; position: relative; z-index: 10; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
-        .product-card {
-            background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 25px; padding: 35px; text-align: center; transition: 0.3s;
+        /* --- NOUVELLE CARTE DE MENU (DÉTAILLÉE) --- */
+        .section-menu-detail { padding: 40px 20px 80px; position: relative; z-index: 10; margin-top: -60px; }
+        .menu-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px; }
+        .tab-btn { 
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); color: white; 
+            padding: 10px 20px; border-radius: 50px; cursor: pointer; white-space: nowrap; transition: 0.3s;
         }
+        .tab-btn.active { background: var(--mojo-orange); border-color: var(--mojo-orange); font-weight: 700; }
 
-        /* --- FOCUS --- */
+        .menu-items-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; max-width: 1100px; margin: 0 auto; 
+        }
+        
+        .item-card {
+            background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 25px;
+            padding: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .item-card:hover { border-color: var(--mojo-orange); transform: translateY(-5px); }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .item-price { color: var(--mojo-orange); font-weight: 800; font-size: 1.2rem; }
+        .item-card h4 { font-size: 1.1rem; text-transform: uppercase; color: #fff; }
+        .item-card p { font-size: 0.85rem; color: #aaa; margin-bottom: 20px; }
+        .item-tags { display: flex; gap: 5px; margin-top: auto; }
+        .tag { font-size: 0.65rem; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; text-transform: uppercase; }
+        .tag.best { background: var(--mojo-orange-deep); color: var(--mojo-orange); border: 1px solid var(--mojo-orange); }
+
+        /* --- FOCUS PRODUIT --- */
         .product-focus { padding: 80px 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1100px; margin: 0 auto; }
         .focus-img { width: 100%; max-width: 400px; border-radius: 30px; border: 2px solid var(--mojo-orange); }
         .focus-text { max-width: 500px; text-align: center; }
 
-        /* --- ESPRIT MOJO --- */
+        /* --- VALEURS --- */
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
         .value-card { background: rgba(0,0,0,0.3); padding: 45px 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
         .value-card h4 { color: var(--mojo-orange); margin-bottom: 15px; font-size: 1.2rem; }
@@ -126,22 +140,13 @@
         .legal-content { font-size: 0.7rem; color: #555; }
         .legal-content span { cursor: pointer; text-decoration: underline; margin: 0 10px; }
 
-        /* --- MODALE MENTIONS LÉGALES --- */
-        .modal {
-            display: none; position: fixed; z-index: 4000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
-            overflow-y: auto; padding: 50px 20px;
-        }
-        .modal-content {
-            background: #1a1a1a; margin: auto; padding: 40px;
-            border: 1px solid var(--mojo-orange); width: 100%; max-width: 700px;
-            border-radius: 20px; color: #ccc; font-size: 0.9rem;
-        }
+        /* --- MODALE --- */
+        .modal { display: none; position: fixed; z-index: 4000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; padding: 50px 20px; }
+        .modal-content { background: #1a1a1a; margin: auto; padding: 40px; border: 1px solid var(--mojo-orange); width: 100%; max-width: 700px; border-radius: 20px; color: #ccc; }
         .close-modal { color: var(--mojo-orange); float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
 
         @media (max-width: 600px) {
-            .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .product-card { padding: 20px 10px; }
+            .menu-items-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,147 +154,4 @@
 
     <button class="burger-btn" onclick="toggleMenu()">
         <span></span><span></span><span></span>
-    </button>
-
-    <div class="menu-overlay" onclick="toggleMenu()"></div>
-    <nav class="side-menu" id="sideMenu">
-        <a href="#" onclick="toggleMenu()">Accueil</a>
-        <a href="#menu" onclick="toggleMenu()">La Carte</a>
-        <a href="#esprit" onclick="toggleMenu()">L'Esprit</a>
-        <a href="#avis" onclick="toggleMenu()">Avis</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </nav>
-
-    <a href="https://wa.me/262693656102" class="whatsapp-float" target="_blank">💬</a>
-
-    <header>
-        <img src="logo.png" alt="Mojo & Mojo" class="main-logo">
-        <div id="status-badge">● CHARGEMENT...</div>
-        <h1>Healthy Cuisine</h1>
-        <p style="color: var(--mojo-orange); font-weight: 600; letter-spacing: 4px; font-size: 0.8rem;">ÉTANG-SALÉ LES BAINS</p>
-    </header>
-
-    <section id="menu" class="section-menu">
-        <div class="container">
-            <div class="menu-grid">
-                <div class="product-card"><span>🍓</span><h3>Açaï Bowl</h3><p>Frais & Énergisant</p></div>
-                <div class="product-card"><span>🥗</span><h3>Poke Bowls</h3><p>Sain & Coloré</p></div>
-                <div class="product-card"><span>🌯</span><h3>Wraps</h3><p>Gourmand & Rapide</p></div>
-                <div class="product-card"><span>🥤</span><h3>Drinks</h3><p>Jus Pressés</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="product-focus">
-        <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Açaï Bowl" class="focus-img">
-        <div class="focus-text">
-            <h2>L'Açaï Bowl <span>Signature</span></h2>
-            <p>Notre recette phare : Açaï onctueux, granola croquant et fruits frais. Le shoot de vitalité parfait après la plage.</p>
-        </div>
-    </section>
-
-    <section id="esprit" class="gradient-section">
-        <div class="container">
-            <h2 style="text-align: center; letter-spacing: 3px; margin-bottom: 20px;">L'ESPRIT MOJO</h2>
-            <div class="values-grid">
-                <div class="value-card"><h4>🌿 100% Frais</h4><p>Produits travaillés chaque matin.</p></div>
-                <div class="value-card"><h4>♻️ Éco-Friendly</h4><p>Packagings biodégradables. On protège notre île.</p></div>
-                <div class="value-card"><h4>📍 Local Spirit</h4><p>Ancré à l'Étang-Salé.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="social-hub">
-        <div class="container">
-            <h2>INSTA VIBES</h2>
-            <div class="video-container">
-                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU8NTt2kfgi/" data-instgrm-version="14" style="background:#000; border:0; border-radius:3px; margin: 1px; width:calc(100% - 2px);">
-                </blockquote>
-                <script async src="//www.instagram.com/embed.js"></script>
-            </div>
-            <a href="https://www.instagram.com/m0j0andm0j0" class="insta-btn" target="_blank">REJOINDRE LE MOJO</a>
-        </div>
-    </section>
-
-    <section id="avis" class="gradient-section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">ILS ADORENT !</h2>
-            <div class="testimonial-container">
-                <div class="testimonial-card"><p>"Le meilleur Açaï de l'île !"</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Marie L.</div></div>
-                <div class="testimonial-card"><p>"Super frais après le surf."</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Thomas R.</div></div>
-                <div class="testimonial-card"><p>"Une adresse incontournable aux bains."</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Julie W.</div></div>
-                <div class="testimonial-card"><p>"Healthy et gourmand. On adore !"</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Kévin B.</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="container">
-        <div class="info-grid">
-            <div>
-                <h3 style="color: var(--mojo-orange); margin-bottom: 15px;">🕒 HORAIRES</h3>
-                <p>Lun - Sam : 09:00 — 18:00</p>
-                <h3 style="color: var(--mojo-orange); margin-top: 30px;">📍 ADRESSE</h3>
-                <p>Rue Mary Guy Hoareau, 97427<br>L'Étang-Salé Les Bains</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1441.870060951812!2d55.3337092004076!3d-21.263445121906635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2182a3ad1ff14b21%3A0x54f802ada098d666!2sMOJO%20%26%20MOJO!5e1!3m2!1sfr!2sfr!4v1773674893860!5m2!1sfr!2sfr0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="footer-cta">
-        <h2>PRÊT POUR VOTRE DOSE DE MOJO ?</h2>
-        <a href="tel:0693656102" class="btn-white">APPELER MAINTENANT</a>
-    </section>
-
-    <footer class="legal-footer">
-        <div class="legal-content">
-            <p>© 2026 MOJO & MOJO • <span onclick="openModal()">Mentions Légales</span></p>
-            <p>L'Étang-Salé Les Bains, La Réunion</p>
-        </div>
-    </footer>
-
-    <div id="legalModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="color:var(--mojo-orange); margin-bottom:20px;">Mentions Légales</h2>
-            <p><strong>Éditeur du site :</strong> Mojo & Mojo</p>
-            <p><strong>Siège social :</strong> Rue Mary Guy Hoareau, 97427 L'Étang-Salé Les Bains</p>
-            <p><strong>Responsable de publication :</strong> Équipe Mojo & Mojo</p>
-            <p><strong>Hébergement :</strong> GitHub Pages</p>
-            <br>
-            <p><strong>Propriété intellectuelle :</strong> L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.</p>
-            <br>
-            <p><strong>Données personnelles :</strong> Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Le bouton WhatsApp vous redirige vers une application tierce soumise à ses propres conditions.</p>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('sideMenu').classList.toggle('active');
-            document.querySelector('.menu-overlay').classList.toggle('active');
-        }
-
-        function openModal() { document.getElementById("legalModal").style.display = "block"; }
-        function closeModal() { document.getElementById("legalModal").style.display = "none"; }
-
-        // Fermer la modale si on clique à côté
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("legalModal")) { closeModal(); }
-        }
-
-        function updateStatus() {
-            const now = new Date();
-            const badge = document.getElementById('status-badge');
-            if (now.getDay() !== 0 && now.getHours() >= 9 && now.getHours() < 18) {
-                badge.innerHTML = "● OUVERT ACTUELLEMENT";
-                badge.style.color = "#25D366";
-            } else {
-                badge.innerHTML = "● FERMÉ";
-                badge.style.color = "#ff4444";
-            }
-        }
-        updateStatus();
-    </script>
-</body>
-</html>
+    </button
