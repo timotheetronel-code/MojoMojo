@@ -8,7 +8,7 @@
     <style>
         :root {
             --mojo-orange: #FF6B00;
-            --mojo-green: #1a3c34;
+            --mojo-orange-deep: #4d2000; /* Le orange du logo mais très assombri pour le gradient */
             --dark-deep: #0a0e0d;
             --card-bg: rgba(20, 25, 24, 0.9);
             --text-light: #f5f5f5;
@@ -26,9 +26,10 @@
             overflow-x: hidden;
         }
 
-        /* --- EFFET GRADIENT --- */
+        /* --- EFFET GRADIENT APPLIQUÉ AUX SECTIONS (CORRIGÉ EN ORANGE) --- */
         .gradient-section {
-            background: linear-gradient(180deg, var(--dark-deep) 0%, var(--mojo-green) 50%, var(--dark-deep) 100%);
+            /* On remplace var(--mojo-green) par var(--mojo-orange-deep) */
+            background: linear-gradient(180deg, var(--dark-deep) 0%, var(--mojo-orange-deep) 50%, var(--dark-deep) 100%);
             padding: 100px 20px;
             border-top: 1px solid rgba(255,255,255,0.03);
         }
@@ -186,7 +187,7 @@
                 <p>Rue Mary Guy Hoareau, 97427<br>L'Étang-Salé Les Bains</p>
             </div>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.913504313203!2d55.33758!3d-21.26442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217d17466986e241%3A0xb1b64e03666b379e!2sRue%20Mary%20Guy%20Hoareau%2C%20L'%C3%89tang-Sal%C3%A9%2097427!5e0!3m2!1sfr!2sre!4v1710500000000!5m2!1sfr!2sre0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.913504313203!2d55.33758!3d-21.26442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217d17466986e241%3A0xb1b64e03666b379e!2sRue%20Mary%20Guy%20Hoareau%2C%20L'%C3%89tang-Sal%C3%A9%2097427!5e0!3m2!1sfr!2sre!4v1710500000000!5m2!1sfr!2sre1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
