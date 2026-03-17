@@ -154,4 +154,202 @@
 
     <button class="burger-btn" onclick="toggleMenu()">
         <span></span><span></span><span></span>
-    </button
+    </button>
+
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <nav class="side-menu" id="sideMenu">
+        <a href="#" onclick="toggleMenu()">Accueil</a>
+        <a href="#menu" onclick="toggleMenu()">La Carte</a>
+        <a href="#esprit" onclick="toggleMenu()">L'Esprit</a>
+        <a href="#avis" onclick="toggleMenu()">Avis</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </nav>
+
+    <a href="https://wa.me/262693656102" class="whatsapp-float" target="_blank">💬</a>
+
+    <header>
+        <img src="logo.png" alt="Mojo & Mojo" class="main-logo">
+        <div id="status-badge">● CHARGEMENT...</div>
+        <h1>Healthy Cuisine</h1>
+        <p style="color: var(--mojo-orange); font-weight: 600; letter-spacing: 4px; font-size: 0.8rem;">ÉTANG-SALÉ LES BAINS</p>
+    </header>
+
+    <section id="menu" class="section-menu-detail">
+        <div class="container">
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="filterMenu('all')">Tout</button>
+                <button class="tab-btn" onclick="filterMenu('poke')">Poke Bowls</button>
+                <button class="tab-btn" onclick="filterMenu('acai')">Açaï Bowls</button>
+                <button class="tab-btn" onclick="filterMenu('wrap')">Wraps</button>
+                <button class="tab-btn" onclick="filterMenu('drink')">Boissons</button>
+            </div>
+
+            <div class="menu-items-grid" id="menu-items">
+                <div class="item-card poke">
+                    <div class="item-header">
+                        <h4>Poke Saumon Fresh</h4>
+                        <span class="item-price">14.50€</span>
+                    </div>
+                    <p>Saumon frais, riz vinaigré, avocat, fèves edamame, mangue, chou rouge et sauce soja maison.</p>
+                    <div class="item-tags">
+                        <span class="tag best">Best-Seller</span>
+                        <span class="tag">Frais</span>
+                    </div>
+                </div>
+                <div class="item-card acai">
+                    <div class="item-header">
+                        <h4>Amazonia Bowl</h4>
+                        <span class="item-price">11.00€</span>
+                    </div>
+                    <p>Base Açaï bio, granola croquant, banane, éclats de coco, baies de goji et filet de miel.</p>
+                    <div class="item-tags">
+                        <span class="tag best">Énergie</span>
+                        <span class="tag">Bio</span>
+                    </div>
+                </div>
+                <div class="item-card wrap">
+                    <div class="item-header">
+                        <h4>Wrap Poulet Grillé</h4>
+                        <span class="item-price">9.50€</span>
+                    </div>
+                    <p>Émincé de poulet mariné, crudités croquantes, sauce yaourt aux herbes et tortilla blé entier.</p>
+                    <div class="item-tags">
+                        <span class="tag">Équilibré</span>
+                    </div>
+                </div>
+                <div class="item-card drink">
+                    <div class="item-header">
+                        <h4>Smoothie Sunset</h4>
+                        <span class="item-price">6.50€</span>
+                    </div>
+                    <p>Ananas, passion, mangue et orange pressée. Sans sucre ajouté.</p>
+                    <div class="item-tags">
+                        <span class="tag">Vitamines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-focus">
+        <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Açaï Bowl" class="focus-img">
+        <div class="focus-text">
+            <h2>L'Açaï Bowl <span>Signature</span></h2>
+            <p>Notre recette phare : Açaï onctueux, granola croquant et fruits frais. Le shoot de vitalité parfait après la plage.</p>
+        </div>
+    </section>
+
+    <section id="esprit" class="gradient-section">
+        <div class="container">
+            <h2 style="text-align: center; letter-spacing: 3px; margin-bottom: 20px;">L'ESPRIT MOJO</h2>
+            <div class="values-grid">
+                <div class="value-card"><h4>🌿 100% Frais</h4><p>Produits travaillés chaque matin.</p></div>
+                <div class="value-card"><h4>♻️ Éco-Friendly</h4><p>Packagings biodégradables. On protège notre île.</p></div>
+                <div class="value-card"><h4>📍 Local Spirit</h4><p>Ancré à l'Étang-Salé.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-hub">
+        <div class="container">
+            <h2>INSTA VIBES</h2>
+            <div class="video-container">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU8NTt2kfgi/" data-instgrm-version="14" style="background:#000; border:0; border-radius:3px; margin: 1px; width:calc(100% - 2px);">
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+            <a href="https://www.instagram.com/m0j0andm0j0" class="insta-btn" target="_blank">REJOINDRE LE MOJO</a>
+        </div>
+    </section>
+
+    <section id="avis" class="gradient-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">ILS ADORENT !</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card"><p>"Le meilleur Açaï de l'île !"</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Marie L.</div></div>
+                <div class="testimonial-card"><p>"Super frais après le surf."</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Thomas R.</div></div>
+                <div class="testimonial-card"><p>"Une adresse incontournable aux bains."</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Julie W.</div></div>
+                <div class="testimonial-card"><p>"Healthy et gourmand. On adore !"</p><div style="margin-top:10px; font-weight:700; color:var(--mojo-orange);">Kévin B.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="info-grid">
+            <div>
+                <h3 style="color: var(--mojo-orange); margin-bottom: 15px;">🕒 HORAIRES</h3>
+                <p>Lun - Sam : 09:00 — 18:00</p>
+                <h3 style="color: var(--mojo-orange); margin-top: 30px;">📍 ADRESSE</h3>
+                <p>Rue Mary Guy Hoareau, 97427<br>L'Étang-Salé Les Bains</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4674338948796!2d55.33446051540307!3d-21.26558458587121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21829377a3d31d9b%3A0x8849646f0474744!2sRue%20Mary%20Guy%20Hoareau%2C%20L&#39;Etang-Sal%C3%A9%20les%20Bains%2C%20La%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1647525000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta">
+        <h2>PRÊT POUR VOTRE DOSE DE MOJO ?</h2>
+        <a href="tel:0693656102" class="btn-white">APPELER MAINTENANT</a>
+    </section>
+
+    <footer class="legal-footer">
+        <div class="legal-content">
+            <p>© 2026 MOJO & MOJO • <span onclick="openModal()">Mentions Légales</span></p>
+            <p>L'Étang-Salé Les Bains, La Réunion</p>
+        </div>
+    </footer>
+
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2 style="color:var(--mojo-orange); margin-bottom:20px;">Mentions Légales</h2>
+            <p><strong>Éditeur :</strong> Mojo & Mojo</p>
+            <p><strong>Siège :</strong> Rue Mary Guy Hoareau, 97427 Étang-Salé Les Bains</p>
+            <p><strong>Hébergeur :</strong> GitHub Pages</p>
+            <br>
+            <p>Ce site est une démonstration commerciale.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+            document.querySelector('.menu-overlay').classList.toggle('active');
+        }
+
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.item-card');
+            const btns = document.querySelectorAll('.tab-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal() { document.getElementById("legalModal").style.display = "block"; }
+        function closeModal() { document.getElementById("legalModal").style.display = "none"; }
+        window.onclick = function(event) { if (event.target == document.getElementById("legalModal")) { closeModal(); } }
+
+        function updateStatus() {
+            const now = new Date();
+            const badge = document.getElementById('status-badge');
+            if (now.getDay() !== 0 && now.getHours() >= 9 && now.getHours() < 18) {
+                badge.innerHTML = "● OUVERT ACTUELLEMENT";
+                badge.style.color = "#25D366";
+            } else {
+                badge.innerHTML = "● FERMÉ";
+                badge.style.color = "#ff4444";
+            }
+        }
+        updateStatus();
+    </script>
+</body>
+</html>
