@@ -8,9 +8,10 @@
     <style>
         :root {
             --mojo-orange: #FF6B00;
-            --mojo-green: #1a3c34; /* Vert jungle pour nuancer le noir */
-            --bg-gradient: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
-            --card-bg: #222222;
+            --mojo-green: #1a3c34;
+            --sand-light: #F4F1EA; /* Couleur sable pour le contraste */
+            --dark-bg: #121212;
+            --text-dark: #222;
             --text-light: #f5f5f5;
             --whatsapp-green: #25D366;
         }
@@ -20,15 +21,15 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0f0f0f;
+            background-color: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
         }
 
-        /* Hero Section avec dégradé plus doux */
+        /* Hero Section */
         header {
             height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(26,60,52,0.8)), 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
@@ -38,59 +39,55 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
-            border-bottom: 4px solid var(--mojo-orange);
         }
 
-        /* Logo : Renomme ton fichier en logo.png sur GitHub pour que ça marche */
-        .main-logo {
-            width: 180px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-        }
+        .main-logo { width: 180px; height: auto; margin-bottom: 15px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; color: white; }
+        .location { color: var(--mojo-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; }
 
-        h1 { font-size: clamp(2rem, 8vw, 3rem); font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .location { color: var(--mojo-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; }
-
-        /* Alternance de couleurs pour casser le noir */
-        .section-light { background: #161616; padding: 80px 20px; }
-        .section-dark { background: #0f0f0f; padding: 80px 20px; }
-
+        /* Section Cartes Menu (Sur fond noir) */
+        .section-menu { padding: 0 20px 80px; background: var(--dark-bg); }
         .container { max-width: 1100px; margin: 0 auto; }
-        
-        /* Menu Cards avec plus de relief */
-        .menu-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
-            margin-top: -120px; /* Chevauchement sur le hero */
-        }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: -80px; }
         
         .product-card {
-            background: var(--card-bg); border-radius: 20px; padding: 35px;
-            border-top: 4px solid var(--mojo-orange);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            transition: 0.3s ease;
+            background: #1e1e1e; border-radius: 20px; padding: 30px;
+            border-bottom: 5px solid var(--mojo-orange);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
-        .product-card:hover { transform: translateY(-10px); background: #2a2a2a; }
-        .emoji { font-size: 2.5rem; display: block; margin-bottom: 15px; }
-        h3 { color: var(--mojo-orange); text-transform: uppercase; margin-bottom: 10px; }
+        .product-card:hover { transform: translateY(-10px); }
+        .emoji { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+        h3 { color: var(--mojo-orange); margin-bottom: 10px; text-transform: uppercase; font-size: 1.1rem; }
 
-        /* Valeurs avec icônes colorées */
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
-        .value-item { padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); }
-        .value-item h4 { color: var(--mojo-orange); margin-bottom: 10px; font-size: 1.2rem; }
-
-        /* Livre d'Or stylisé */
-        .testimonial-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-snap-type: x mandatory; }
-        .testimonial-card {
-            min-width: 300px; background: var(--mojo-green); padding: 30px; border-radius: 20px; 
-            scroll-snap-align: center; border: 1px solid rgba(255,255,255,0.1);
+        /* SECTION SABLE (CONTRASTE FORT) */
+        .section-sand { 
+            background-color: var(--sand-light); 
+            color: var(--text-dark); 
+            padding: 100px 20px; 
+            text-align: center;
         }
+        .section-sand h2 { font-size: 2rem; margin-bottom: 40px; color: var(--mojo-green); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .value-card { background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .value-card h4 { color: var(--mojo-orange); margin-bottom: 15px; font-size: 1.3rem; }
 
-        /* Map & Infos réelles */
+        /* SECTION TEMOIGNAGES (SUR VERT MOJO) */
+        .section-testimonials { background: var(--mojo-green); padding: 100px 20px; text-align: center; }
+        .testimonial-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; max-width: 1000px; margin: 0 auto; }
+        .testimonial-card { 
+            min-width: 320px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; 
+            text-align: left; border: 1px solid rgba(255,255,255,0.1); 
+        }
+        .author { color: var(--mojo-orange); font-weight: 700; margin-top: 15px; }
+
+        /* SECTION MAP & INFOS (RETOUR AU NOIR/GRIS) */
+        .section-info { padding: 100px 20px; background: #1a1a1a; }
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center; }
-        .map-container { border-radius: 25px; overflow: hidden; border: 3px solid var(--mojo-orange); height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .map-container { 
+            border-radius: 30px; overflow: hidden; border: 4px solid var(--mojo-orange); height: 400px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
         /* WhatsApp */
         .whatsapp-float {
@@ -101,19 +98,14 @@
             font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none;
         }
 
-        /* CTA Final */
-        .footer-cta { 
-            background: linear-gradient(45deg, #FF6B00, #ff8c00); 
-            color: white; padding: 80px 20px; text-align: center; 
-        }
+        /* Footer Orange */
+        .footer-cta { background: var(--mojo-orange); color: white; padding: 80px 20px; text-align: center; }
         .btn-white { 
             background: white; color: var(--mojo-orange); padding: 18px 50px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; 
-            display: inline-block; margin-top: 25px; text-transform: uppercase;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 25px;
         }
 
-        footer { text-align: center; padding: 30px; font-size: 0.8rem; background: #0a0a0a; color: #555; }
+        footer { text-align: center; padding: 30px; background: #000; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
@@ -121,12 +113,12 @@
     <a href="https://wa.me/262693656102" class="whatsapp-float" target="_blank">💬</a>
 
     <header>
-        <img src="logo.png" alt="Mojo & Mojo Logo" class="main-logo">
+        <img src="logo.png" alt="Mojo & Mojo" class="main-logo">
         <p class="location">L'Étang-Salé Les Bains</p>
         <h1>HEALTHY CUISINE</h1>
     </header>
 
-    <section class="section-dark">
+    <section class="section-menu">
         <div class="container">
             <div class="menu-grid">
                 <div class="product-card"><span class="emoji">🍓</span><h3>Açaï Bowl</h3><p>Frais, vitaminé et gourmand.</p></div>
@@ -137,42 +129,41 @@
         </div>
     </section>
 
-    <section class="section-light">
-        <div class="container" style="text-align: center;">
-            <h2 style="letter-spacing: 3px; margin-bottom: 20px;">L'ESPRIT MOJO</h2>
-            <div class="values-grid">
-                <div class="value-item"><h4>🌿 100% Frais</h4><p>Pas de compromis sur la qualité des produits.</p></div>
-                <div class="value-item"><h4>♻️ Éco-Responsable</h4><p>Packagings biodégradables.</p></div>
-                <div class="value-item"><h4>📍 Étang-Salé</h4><p>Au cœur de la vie locale des bains.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark">
+    <section class="section-sand">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">ILS ADORENT !</h2>
-            <div class="testimonial-container">
-                <div class="testimonial-card"><p>"Meilleur Açaï de l'île !"</p><div class="author">Marie L.</div></div>
-                <div class="testimonial-card"><p>"Les pokes sont incroyables."</p><div class="author">Thomas R.</div></div>
-                <div class="testimonial-card"><p>"Accueil 5 étoiles."</p><div class="author">Julie W.</div></div>
+            <h2>L'ESPRIT MOJO</h2>
+            <div class="values-grid">
+                <div class="value-card"><h4>🌿 100% Frais</h4><p>Pas de compromis sur la qualité. Des produits bruts travaillés avec amour.</p></div>
+                <div class="value-card"><h4>♻️ Éco-Friendly</h4><p>Packagings biodégradables. On prend soin de notre île.</p></div>
+                <div class="value-card"><h4>📍 Étang-Salé</h4><p>Au cœur de la vie locale, à deux pas du lagon.</p></div>
             </div>
         </div>
     </section>
 
-    <section class="section-light">
+    <section class="section-testimonials">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 40px;">ILS ADORENT !</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card"><p>"Meilleur Açaï de l'île ! Une texture parfaite."</p><div class="author">Marie L.</div></div>
+                <div class="testimonial-card"><p>"Les pokes sont incroyables et très copieux."</p><div class="author">Thomas R.</div></div>
+                <div class="testimonial-card"><p>"Un accueil 5 étoiles à chaque visite."</p><div class="author">Julie W.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-info">
         <div class="container">
             <div class="info-grid">
                 <div>
-                    <h3 style="color: var(--mojo-orange); margin-bottom: 15px;">🕒 HORAIRES</h3>
-                    <p>Lundi - Samedi : 09h00 — 18h00</p>
+                    <h3 style="color: var(--mojo-orange); font-size: 1.8rem; margin-bottom: 20px;">🕒 HORAIRES</h3>
+                    <p>Lundi - Samedi : 09:00 — 18:00</p>
                     <p style="opacity: 0.5;">Dimanche : Fermé</p>
-                    
-                    <h3 style="color: var(--mojo-orange); margin-top: 30px; margin-bottom: 10px;">📍 NOUS TROUVER</h3>
+                    <h3 style="color: var(--mojo-orange); font-size: 1.8rem; margin-top: 40px; margin-bottom: 10px;">📍 ADRESSE</h3>
                     <p>Rue Mary Guy Hoareau,<br>97427 L'Étang-Salé Les Bains</p>
                 </div>
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.366224424368!2d55.3344696!3d-21.237149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217d49b20e03c001%3A0xe72617711910a56!2sMojo%20%26%20Mojo!5e0!3m2!1sfr!2sre!4v1710590000000!5m2!1sfr!2sre" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.914555816962!2d55.3333333!3d-21.2666667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x218293678393587b%3A0x8683e9619623e93!2sRue%20Mary%20Guy%20Hoareau%2C%20L'Etang-Sal%C3%A9%20Les%20Bains%2C%20R%C3%A9union!5e0!3m2!1sfr!2sfr!4v1700000000000" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
@@ -182,11 +173,11 @@
 
     <section class="footer-cta">
         <h2>PRÊT POUR VOTRE DOSE DE MOJO ?</h2>
-        <a href="tel:0693656102" class="btn-white">Appeler le 06 93 65 61 02</a>
+        <a href="tel:0693656102" class="btn-white">APPELER LE 06 93 65 61 02</a>
     </section>
 
     <footer>
-        © 2026 MOJO & MOJO • L'ÉTANG-SALÉ LES BAINS
+        © 2026 MOJO & MOJO • HEALTHY CUISINE • L'ÉTANG-SALÉ LES BAINS
     </footer>
 
 </body>
