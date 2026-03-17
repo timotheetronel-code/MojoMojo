@@ -26,26 +26,23 @@
             overflow-x: hidden;
         }
 
-        /* --- BACKGROUND VIDEO HERO --- */
-        .hero-video-container {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; overflow: hidden;
-        }
-        .hero-video-container video {
-            min-width: 100%; min-height: 100%;
-            object-fit: cover; opacity: 0.4; /* Vidéo en transparence */
+        /* --- EFFET GRADIENT ORANGE DEEP --- */
+        .gradient-section {
+            background: linear-gradient(180deg, var(--dark-deep) 0%, var(--mojo-orange-deep) 50%, var(--dark-deep) 100%);
+            padding: 100px 20px;
+            border-top: 1px solid rgba(255,255,255,0.03);
         }
 
+        /* --- HERO SECTION --- */
         header {
-            position: relative;
-            height: 90vh;
+            height: 85vh;
+            background: linear-gradient(rgba(10,14,13,0.4), rgba(10,14,13,0.9)), 
+                        url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
             display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-            padding: 20px; overflow: hidden;
-            background: rgba(10, 14, 13, 0.6);
+            padding: 20px;
         }
 
-        /* --- ANIMATIONS DE MOUVEMENT --- */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -55,44 +52,68 @@
         .main-logo { 
             width: 180px; height: 180px; border-radius: 50%; object-fit: cover; 
             margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(255,107,0,0.3)); 
-            animation: float 4s ease-in-out infinite; /* Logo qui flotte doucement */
+            animation: float 4s ease-in-out infinite;
         }
-
-        /* Badge Statut */
+        
         #status-badge {
             font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 15px;
             padding: 5px 15px; border-radius: 20px; background: rgba(0,0,0,0.5); display: inline-block;
         }
 
-        .gradient-section {
-            background: linear-gradient(180deg, var(--dark-deep) 0%, var(--mojo-orange-deep) 50%, var(--dark-deep) 100%);
-            padding: 100px 20px;
-        }
+        h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
 
-        /* Menu Grid */
+        /* --- MENU GRID --- */
         .section-menu { padding: 0 20px 60px; margin-top: -100px; position: relative; z-index: 10; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
         
         .product-card {
-            background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 25px; padding: 35px; text-align: center; transition: 0.4s;
+            background: var(--card-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: 25px; padding: 35px;
+            text-align: center; transition: 0.4s;
         }
-        .product-card:hover { border-color: var(--mojo-orange); transform: scale(1.05); }
+        .product-card:hover { border-color: var(--mojo-orange); transform: translateY(-10px); }
+        h3 { color: var(--mojo-orange); text-transform: uppercase; font-size: 1rem; margin: 15px 0 10px; }
 
-        /* Social Hub & Video */
+        /* --- FOCUS PRODUIT --- */
+        .product-focus { padding: 100px 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 60px; }
+        .focus-img { width: 100%; max-width: 450px; border-radius: 30px; border: 2px solid var(--mojo-orange); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .focus-text { max-width: 500px; }
+        .focus-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .focus-text span { color: var(--mojo-orange); }
+
+        /* --- VALEURS --- */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .value-card { background: rgba(0,0,0,0.3); padding: 45px 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .value-card h4 { color: var(--mojo-orange); margin-bottom: 15px; font-size: 1.2rem; }
+
+        /* --- SOCIAL HUB & INSTA REEL --- */
+        .social-hub { text-align: center; padding: 100px 20px; }
         .video-container { 
             max-width: 350px; margin: 40px auto; border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
         }
+        .insta-btn { border: 2px solid white; color: white; padding: 16px 45px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .insta-btn:hover { background: white; color: black; }
 
+        /* --- LIVRE D'OR --- */
+        .testimonial-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; }
+        .testimonial-card { min-width: 320px; background: rgba(255,255,255,0.03); padding: 35px; border-radius: 25px; border-left: 4px solid var(--mojo-orange); scroll-snap-align: center; }
+
+        /* --- INFOS & MAP --- */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; padding: 100px 0; align-items: center; }
+        .map-container { border-radius: 30px; overflow: hidden; border: 2px solid var(--mojo-orange); height: 400px; }
+
+        /* --- WHATSAPP --- */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); color: white;
             width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-size: 30px; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-decoration: none;
         }
 
+        /* --- FOOTER CTA --- */
         .footer-cta { background: var(--mojo-orange); color: white; padding: 90px 20px; text-align: center; }
-        .btn-white { background: white; color: var(--mojo-orange); padding: 18px 55px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 25px; }
+        .btn-white { background: white; color: var(--mojo-orange); padding: 18px 55px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 25px; text-transform: uppercase; }
 
         footer { text-align: center; padding: 40px; background: #050505; color: #444; font-size: 0.8rem; }
     </style>
@@ -102,70 +123,89 @@
     <a href="https://wa.me/262693656102" class="whatsapp-float" target="_blank">💬</a>
 
     <header>
-        <div class="hero-video-container">
-            <video autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-fresh-vegetables-and-fruits-9966-large.mp4" type="video/mp4">
-            </video>
-        </div>
-
         <img src="logo.png" alt="Mojo & Mojo" class="main-logo">
         <div id="status-badge">● CHARGEMENT...</div>
-        <h1 style="text-transform: uppercase; font-weight: 800;">Healthy Cuisine</h1>
+        <h1>Healthy Cuisine</h1>
         <p style="color: var(--mojo-orange); font-weight: 600; letter-spacing: 4px; font-size: 0.8rem;">ÉTANG-SALÉ LES BAINS</p>
     </header>
 
     <section class="section-menu">
-        <div class="menu-grid">
-            <div class="product-card"><span>🍓</span><h3>Açaï Bowl</h3><p>Frais & Énergisant</p></div>
-            <div class="product-card"><span>🥗</span><h3>Poke Bowls</h3><p>Sain & Coloré</p></div>
-            <div class="product-card"><span>🌯</span><h3>Wraps</h3><p>Gourmand & Rapide</p></div>
-            <div class="product-card"><span>🥤</span><h3>Drinks</h3><p>Vitamines Pressées</p></div>
+        <div class="container">
+            <div class="menu-grid">
+                <div class="product-card"><span>🍓</span><h3>Açaï Bowl</h3><p>Frais & Énergisant</p></div>
+                <div class="product-card"><span>🥗</span><h3>Poke Bowls</h3><p>Sain & Coloré</p></div>
+                <div class="product-card"><span>🌯</span><h3>Wraps</h3><p>Gourmand & Rapide</p></div>
+                <div class="product-card"><span>🥤</span><h3>Drinks</h3><p>Vitamines Pressées</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container product-focus">
+        <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Açaï Bowl" class="focus-img">
+        <div class="focus-text">
+            <h2>L'Açaï Bowl <span>Signature</span></h2>
+            <p>Découvrez notre recette originale : une base d'Açaï onctueuse, surmontée de granola croquant et de fruits frais. Le shoot de vitalité parfait après une session de surf.</p>
         </div>
     </section>
 
     <section class="gradient-section">
-        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-            <h2 style="letter-spacing: 3px; margin-bottom: 40px;">L'ESPRIT MOJO</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 20px;"><h4>🌿 100% Frais</h4><p>Préparé minute.</p></div>
-                <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 20px;"><h4>♻️ Éco-Friendly</h4><p>Packagings bio.</p></div>
-                <div style="background: rgba(0,0,0,0.3); padding: 40px; border-radius: 20px;"><h4>📍 Local</h4><p>974 Étang-Salé.</p></div>
+        <div class="container">
+            <h2 style="text-align: center; letter-spacing: 3px; margin-bottom: 20px;">L'ESPRIT MOJO</h2>
+            <div class="values-grid">
+                <div class="value-card"><h4>🌿 100% Frais</h4><p>Pas de compromis sur la qualité des produits bruts.</p></div>
+                <div class="value-card"><h4>♻️ Éco-Friendly</h4><p>Packagings biodégradables. On protège notre île.</p></div>
+                <div class="value-card"><h4>📍 Local Spirit</h4><p>Ancré à l'Étang-Salé Les Bains.</p></div>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center; padding: 100px 20px;">
-        <h2>INSTA VIBES</h2>
-        <div class="video-container">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU8NTt2kfgi/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#000; border:0; border-radius:3px; margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%;">
-                <a href="https://www.instagram.com/reel/DU8NTt2kfgi/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank"></a>
-            </blockquote>
-            <script async src="//www.instagram.com/embed.js"></script>
+    <section class="social-hub">
+        <div class="container">
+            <h2>INSTA VIBES</h2>
+            <div class="video-container">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DU8NTt2kfgi/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style=" background:#000; border:0; border-radius:3px; margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%;">
+                <a href="https://www.instagram.com/reel/DU8NTt2kfgi/?utm_source=ig_embed&utm_campaign=loading" target="_blank"></a>
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+            <a href="https://www.instagram.com/m0j0andm0j0" class="insta-btn" target="_blank">REJOINDRE LE MOJO</a>
         </div>
-        <a href="https://www.instagram.com/m0j0andm0j0" style="border: 2px solid white; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none;" target="_blank">REJOINDRE LE MOJO</a>
     </section>
 
-    <section style="max-width: 1000px; margin: 0 auto; padding: 100px 20px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
+    <section class="gradient-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">ILS ADORENT !</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card"><p>"Le meilleur Açaï de l'île !"</p><div style="margin-top:15px; font-weight:700; color:var(--mojo-orange);">Marie L.</div></div>
+                <div class="testimonial-card"><p>"Super frais après le surf. Je recommande."</p><div style="margin-top:15px; font-weight:700; color:var(--mojo-orange);">Thomas R.</div></div>
+                <div class="testimonial-card"><p>"Une adresse incontournable aux bains."</p><div style="margin-top:15px; font-weight:700; color:var(--mojo-orange);">Julie W.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="info-grid">
             <div>
-                <h3 style="color: var(--mojo-orange); margin-bottom: 20px;">🕒 HORAIRES</h3>
+                <h3 style="color: var(--mojo-orange); margin-bottom: 15px; font-size: 1.8rem;">🕒 HORAIRES</h3>
                 <p>Lun - Sam : 09:00 — 18:00</p>
                 <p style="opacity: 0.4;">Dimanche : Fermé</p>
-                <h3 style="color: var(--mojo-orange); margin-top: 40px;">📍 ADRESSE</h3>
+                <h3 style="color: var(--mojo-orange); margin-top: 40px; margin-bottom: 10px; font-size: 1.8rem;">📍 ADRESSE</h3>
                 <p>Rue Mary Guy Hoareau, 97427<br>L'Étang-Salé Les Bains</p>
             </div>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.913504313203!2d55.33758!3d-21.26442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217d17466986e241%3A0xb1b64e03666b379e!2sRue%20Mary%20Guy%20Hoareau%2C%20L'%C3%89tang-Sal%C3%A9%2097427!5e0!3m2!1sfr!2sre!4v1710500000000!5m2!1sfr!2sre4" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.332341279261!2d55.33408547604343!3d-21.238426080352125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217d69288e060001%3A0xe213038a846f497a!2sMojo%20%26%20Mojo!5e0!3m2!1sfr!2sre!4v1710680000000!5m2!1sfr!2sre" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <section class="footer-cta">
-        <h2>COMMANDEZ VOTRE DOSE DE FRAÎCHEUR</h2>
-        <a href="tel:0693656102" class="btn-white">APPELER AU 06 93 65 61 02</a>
+        <h2>PRÊT POUR VOTRE DOSE DE MOJO ?</h2>
+        <a href="tel:0693656102" class="btn-white">APPELER MAINTENANT</a>
     </section>
 
-    <footer>© 2026 MOJO & MOJO • ÉTANG-SALÉ LES BAINS</footer>
+    <footer>
+        © 2026 MOJO & MOJO • ÉTANG-SALÉ LES BAINS
+    </footer>
 
     <script>
         function updateStatus() {
@@ -175,7 +215,7 @@
                 badge.innerHTML = "● OUVERT ACTUELLEMENT";
                 badge.style.color = "#25D366";
             } else {
-                badge.innerHTML = "● FERMÉ";
+                badge.innerHTML = "● FERMÉ - RÉOUVERTURE 09:00";
                 badge.style.color = "#ff4444";
             }
         }
