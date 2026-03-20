@@ -74,7 +74,7 @@
 
         #status-badge { font-size: 0.75rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; background: rgba(0,0,0,0.6); margin-bottom: 15px; }
 
-        /* --- NOUVELLE CARTE DE MENU (DÉTAILLÉE) --- */
+        /* --- SECTION MENU --- */
         .section-menu-detail { padding: 40px 20px 80px; position: relative; z-index: 10; margin-top: -60px; }
         .menu-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 10px; }
         .tab-btn { 
@@ -84,28 +84,68 @@
         .tab-btn.active { background: var(--mojo-orange); border-color: var(--mojo-orange); font-weight: 700; }
 
         .menu-items-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; max-width: 1100px; margin: 0 auto; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; max-width: 1200px; margin: 0 auto; 
         }
         
+        /* --- ITEM CARD AMÉLIORÉE --- */
         .item-card {
-            background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 25px;
-            padding: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
-            display: flex; flex-direction: column; justify-content: space-between;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
-        .item-card:hover { border-color: var(--mojo-orange); transform: translateY(-5px); }
-        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-        .item-price { color: var(--mojo-orange); font-weight: 800; font-size: 1.2rem; }
-        .item-card h4 { font-size: 1.1rem; text-transform: uppercase; color: #fff; }
-        .item-card p { font-size: 0.85rem; color: #aaa; margin-bottom: 20px; }
-        .item-tags { display: flex; gap: 5px; margin-top: auto; }
-        .tag { font-size: 0.65rem; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; text-transform: uppercase; }
-        .tag.best { background: var(--mojo-orange-deep); color: var(--mojo-orange); border: 1px solid var(--mojo-orange); }
+        .item-card:hover { 
+            border-color: var(--mojo-orange); 
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 107, 0, 0.15);
+        }
 
-        /* --- FOCUS PRODUIT --- */
-        .product-focus { padding: 80px 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 50px; max-width: 1100px; margin: 0 auto; }
-        .focus-img { width: 100%; max-width: 400px; border-radius: 30px; border: 2px solid var(--mojo-orange); }
-        .focus-text { max-width: 500px; text-align: center; }
+        /* Photo du plat */
+        .item-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .item-card:hover .item-photo {
+            transform: scale(1.05);
+        }
+        .item-photo-wrapper {
+            overflow: hidden;
+            position: relative;
+            border-radius: 0;
+        }
+        .item-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(20,25,24,0.95));
+        }
+
+        /* Contenu de la carte */
+        .item-body {
+            padding: 20px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .item-price { 
+            color: var(--mojo-orange); font-weight: 800; font-size: 1.2rem; 
+            white-space: nowrap; margin-left: 10px;
+        }
+        .item-card h4 { font-size: 1rem; text-transform: uppercase; color: #fff; letter-spacing: 0.5px; }
+        .item-card p { font-size: 0.82rem; color: #aaa; margin-bottom: 16px; line-height: 1.5; flex: 1; }
+        .item-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+        .tag { font-size: 0.65rem; background: rgba(255,255,255,0.1); padding: 4px 9px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag.best { background: var(--mojo-orange-deep); color: var(--mojo-orange); border: 1px solid var(--mojo-orange); }
 
         /* --- VALEURS --- */
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
@@ -185,59 +225,98 @@
             </div>
 
             <div class="menu-items-grid" id="menu-items">
+
+                <!-- Poke Saumon Fresh -->
                 <div class="item-card poke">
-                    <div class="item-header">
-                        <h4>Poke Saumon Fresh</h4>
-                        <span class="item-price">14.50€</span>
+                    <div class="item-photo-wrapper">
+                        <img 
+                            src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=600&q=80" 
+                            alt="Poke Saumon Fresh" 
+                            class="item-photo"
+                        >
                     </div>
-                    <p>Saumon frais, riz vinaigré, avocat, fèves edamame, mangue, chou rouge et sauce soja maison.</p>
-                    <div class="item-tags">
-                        <span class="tag best">Best-Seller</span>
-                        <span class="tag">Frais</span>
+                    <div class="item-body">
+                        <div class="item-header">
+                            <h4>Poke Saumon Fresh</h4>
+                            <span class="item-price">14.50€</span>
+                        </div>
+                        <p>Saumon frais, riz vinaigré, avocat, fèves edamame, mangue, chou rouge et sauce soja maison.</p>
+                        <div class="item-tags">
+                            <span class="tag best">Best-Seller</span>
+                            <span class="tag">Frais</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Amazonia Bowl -->
                 <div class="item-card acai">
-                    <div class="item-header">
-                        <h4>Amazonia Bowl</h4>
-                        <span class="item-price">11.00€</span>
+                    <div class="item-photo-wrapper">
+                        <img 
+                            src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" 
+                            alt="Amazonia Bowl" 
+                            class="item-photo"
+                        >
                     </div>
-                    <p>Base Açaï bio, granola croquant, banane, éclats de coco, baies de goji et filet de miel.</p>
-                    <div class="item-tags">
-                        <span class="tag best">Énergie</span>
-                        <span class="tag">Bio</span>
+                    <div class="item-body">
+                        <div class="item-header">
+                            <h4>Amazonia Bowl</h4>
+                            <span class="item-price">11.00€</span>
+                        </div>
+                        <p>Base Açaï bio, granola croquant, banane, éclats de coco, baies de goji et filet de miel.</p>
+                        <div class="item-tags">
+                            <span class="tag best">Énergie</span>
+                            <span class="tag">Bio</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Wrap Poulet Grillé -->
                 <div class="item-card wrap">
-                    <div class="item-header">
-                        <h4>Wrap Poulet Grillé</h4>
-                        <span class="item-price">9.50€</span>
+                    <div class="item-photo-wrapper">
+                        <img 
+                            src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80" 
+                            alt="Wrap Poulet Grillé" 
+                            class="item-photo"
+                        >
                     </div>
-                    <p>Émincé de poulet mariné, crudités croquantes, sauce yaourt aux herbes et tortilla blé entier.</p>
-                    <div class="item-tags">
-                        <span class="tag">Équilibré</span>
+                    <div class="item-body">
+                        <div class="item-header">
+                            <h4>Wrap Poulet Grillé</h4>
+                            <span class="item-price">9.50€</span>
+                        </div>
+                        <p>Émincé de poulet mariné, crudités croquantes, sauce yaourt aux herbes et tortilla blé entier.</p>
+                        <div class="item-tags">
+                            <span class="tag">Équilibré</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Smoothie Sunset -->
                 <div class="item-card drink">
-                    <div class="item-header">
-                        <h4>Smoothie Sunset</h4>
-                        <span class="item-price">6.50€</span>
+                    <div class="item-photo-wrapper">
+                        <img 
+                            src="https://images.unsplash.com/photo-1638176066736-df3b0e1fc9d5?auto=format&fit=crop&w=600&q=80" 
+                            alt="Smoothie Sunset" 
+                            class="item-photo"
+                        >
                     </div>
-                    <p>Ananas, passion, mangue et orange pressée. Sans sucre ajouté.</p>
-                    <div class="item-tags">
-                        <span class="tag">Vitamines</span>
+                    <div class="item-body">
+                        <div class="item-header">
+                            <h4>Smoothie Sunset</h4>
+                            <span class="item-price">6.50€</span>
+                        </div>
+                        <p>Ananas, passion, mangue et orange pressée. Sans sucre ajouté.</p>
+                        <div class="item-tags">
+                            <span class="tag">Vitamines</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section class="product-focus">
-        <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=600&q=80" alt="Açaï Bowl" class="focus-img">
-        <div class="focus-text">
-            <h2>L'Açaï Bowl <span>Signature</span></h2>
-            <p>Notre recette phare : Açaï onctueux, granola croquant et fruits frais. Le shoot de vitalité parfait après la plage.</p>
-        </div>
-    </section>
+    <!-- Section "L'Açaï Bowl Signature" supprimée -->
 
     <section id="esprit" class="gradient-section">
         <div class="container">
